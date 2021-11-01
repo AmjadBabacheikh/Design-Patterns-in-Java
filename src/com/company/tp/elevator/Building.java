@@ -11,11 +11,7 @@ public class Building {
 
     public Building(int numberFloors, String... elevators) {
         this.numberFloors = numberFloors;
-        this.elevatorsArray = new HashMap();
-        for (int i = 0; i < elevators.length; i++) {
-            String[] elevatorDetail = elevators[i].split(":");
-            elevatorsArray.put(elevatorDetail[0], new Elevator(elevatorDetail[0], Integer.valueOf(elevatorDetail[1]), numberFloors));
-        }
+        this.elevatorsArray = ElevatorFactory.buildElevators(numberFloors, elevators);
     }
 
     public void move(String idElevator, String direction) {
