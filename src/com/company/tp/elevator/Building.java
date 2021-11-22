@@ -30,14 +30,14 @@ public class Building {
 
     public String requestElevator(int i) {
         Map<String, Integer> distanceElevatorMap = new HashMap<>();
-        this.elevatorsArray.forEach((s, elevator) -> distanceElevatorMap.put(elevator.getId(), elevator.distanceFromFloor(i)));
+        this.elevatorsArray.forEach((s, elevator) -> distanceElevatorMap.put(s, elevator.distanceFromFloor(i)));
         String key = Collections.min(distanceElevatorMap.entrySet(), Map.Entry.comparingByValue()).getKey();
         return key;
     }
 
     public String requestElevator() {
         Map<String, Integer> distanceElevatorMap = new HashMap<>();
-        this.elevatorsArray.forEach((s, elevator) -> distanceElevatorMap.put(elevator.getId(), elevator.distanceFromFloor(this.numberFloors)));
+        this.elevatorsArray.forEach((s, elevator) -> distanceElevatorMap.put(s, elevator.distanceFromFloor(this.numberFloors)));
         String key = Collections.min(distanceElevatorMap.entrySet(), Map.Entry.comparingByValue()).getKey();
         return key;
     }
@@ -46,7 +46,6 @@ public class Building {
         Elevator elevator = this.elevatorsArray.get(idElevator);
         elevator.setCurrentFloor(floor);
         elevator.getElevatorState().stop();
-
     }
 
 }

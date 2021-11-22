@@ -9,7 +9,7 @@ public class ElevatorFactory {
         Map <String,Elevator>elevatorsArray = new HashMap();
         for (int i = 0; i < elevators.length; i++) {
             String[] elevatorDetail = elevators[i].split(":");
-            elevatorsArray.put(elevatorDetail[0], new Elevator(elevatorDetail[0], Integer.valueOf(elevatorDetail[1]), numberFloors));
+            elevatorsArray.put(elevatorDetail[0], new Elevator(Integer.valueOf(elevatorDetail[1]), numberFloors));
         }
         return elevatorsArray;
     }
